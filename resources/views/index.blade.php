@@ -30,7 +30,7 @@
                     <td>{{ $task->status }}</td>
                     <td>{{ $task->created_at }}</td>
                     <td>{{ $task->updated_at }}</td>
-                    <td>-</td>
+                    <td><a href="{{ route('.edit', $task->id) }}">Edit</a></td>
                 </tr>
             @empty
                 <tr>

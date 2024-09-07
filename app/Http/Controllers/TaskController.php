@@ -26,4 +26,25 @@ class TaskController extends Controller
         ->route(".index")
         ->with("success", "Tarefa criada com sucesso");
     }
+
+    public function edit(string $id) {
+    
+        if (!$task = Task::find($id)) {
+            return redirect()->route('.index');
+        }
+
+
+        return view("edit", compact("task"));
+    }
+
+    public function update(Request $request, string $id) {
+
+        if (!$task = Task::find($id)) {
+            return back();
+        }   
+
+        $task->update(request($request->all()));
+
+        return redirect()->route(".index");
+    }
 }
