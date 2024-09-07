@@ -1,3 +1,8 @@
+@extends('layout.app')
+@section("title", "Nova Tarefa")
+
+@section("content")
+
 <h1>Nova Tarefa</h1>
 
 <form action="{{route('.store')}}" method="post">
@@ -11,3 +16,5 @@
     <input type="text" name="created_at" value="{{ now() }}" hidden>
     <button type="submit">Criar Tarefa</button>
 </form>
+
+@endsection
