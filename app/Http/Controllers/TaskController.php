@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreTaskRequest;
+use App\Http\Requests\UpdateTaskRequest;
 use App\Models\Task;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -20,7 +21,7 @@ class TaskController extends Controller
 
     public function store(StoreTaskRequest $request) {
 
-        Task::create($request->all());
+        Task::create($request->validated());
 
         return redirect()
         ->route(".index")
@@ -37,7 +38,7 @@ class TaskController extends Controller
         return view("edit", compact("task"));
     }
 
-    public function update(Request $request, string $id) {
+    public function update(UpdateTaskRequest $request, string $id) {
 
         if (!$task = Task::find($id)) {
             return back()->with("message", "Tarefa não encontrada");
