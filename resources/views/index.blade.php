@@ -5,9 +5,7 @@
 
     <h1>Tarefas</h1>
 
-    @if (session()->has("success"))
-        {{ session("success") }}
-    @endif
+    <x-alert\>
 
     <a href="{{ route('.create') }}">Nova Tarefa</a>
 

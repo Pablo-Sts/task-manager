@@ -30,7 +30,7 @@ class TaskController extends Controller
     public function edit(string $id) {
     
         if (!$task = Task::find($id)) {
-            return redirect()->route('.index');
+            return redirect()->route('.index')->with("message", "Tarefa não encontrada");
         }
 
 
@@ -40,11 +40,11 @@ class TaskController extends Controller
     public function update(Request $request, string $id) {
 
         if (!$task = Task::find($id)) {
-            return back();
+            return back()->with("message", "Tarefa não encontrada");
         }   
 
         $task->update(request($request->all()));
 
-        return redirect()->route(".index");
+        return redirect()->route(".index")->with("success", "Tarefa editada com suceso");
     }
 }
