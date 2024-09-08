@@ -12,23 +12,22 @@
     <table>
         <thead>
             <tr>
+                <th>Status</th>
                 <th>Título</th>
                 <th>Descrição</th>
-                <th>Status</th>
-                <th>Data Criação</th>
-                <th>Data Última Edição</th>
                 <th>Ações</th>
             </tr>
         </thead>
         <tbody>
             @forelse ($tasks as $task)
                 <tr>
+                    <td>{{ $task->status }}</td>
                     <td>{{ $task->title }}</td>
                     <td>{{ $task->description }}</td>
-                    <td>{{ $task->status }}</td>
-                    <td>{{ $task->created_at }}</td>
-                    <td>{{ $task->updated_at }}</td>
-                    <td><a href="{{ route('.edit', $task->id) }}">Edit</a></td>
+                    <td>
+                        <a href="{{ route('.edit', $task->id) }}">Edit</a>
+                        <a href="{{ route('.show', $task->id) }}">Detalhes</a>
+                    </td>
                 </tr>
             @empty
                 <tr>
