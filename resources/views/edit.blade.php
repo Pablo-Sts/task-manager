@@ -3,7 +3,7 @@
 
 @section("content")
 
-<h1>Tarefa Tarefa  {{ $task->title }}</h1>
+<h1>Tarefa {{ $task->title }}</h1>
 
 <x-alert/>
 
