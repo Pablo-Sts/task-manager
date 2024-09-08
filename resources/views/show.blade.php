@@ -19,9 +19,13 @@
         <ul class="list-group">
             <li  class="list-group-item list-group-item-info text-dark fs-5 p-3">Título: {{ $task->title }}</li>
             <li class="list-group-item list-group-item-primary text-dark fs-5 p-3">Descrição: {{ $task->description }}</li>
-            <li class="list-group-item list-group-item-info text-dark fs-5 p-3">Status: {{ $task->status }}</li>
-            <li class="list-group-item list-group-item-primary text-dark fs-5 p-3">Criada em: {{ $task->created_at }}</li>
-            <li class="list-group-item list-group-item-info text-dark fs-5 p-3">Útima edição: {{ $task->updated_at }}</li>
+            @if ($task->status == "Pending")
+                <li class="list-group-item list-group-item-info text-dark fs-5 p-3">Status: Pendente</li>
+            @else
+                <li class="list-group-item list-group-item-info text-dark fs-5 p-3">Status: Concluída</li>
+            @endif
+            <li class="list-group-item list-group-item-primary text-dark fs-5 p-3">Criada em: {{ $task->created_at = date("d/m/Y") }}</li>
+            <li class="list-group-item list-group-item-info text-dark fs-5 p-3">Útima edição: {{ $task->updated_at = date("d/m/Y") }}</li>
         </ul>
     </div>
     
