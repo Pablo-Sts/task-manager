@@ -5,13 +5,7 @@
 
 <h1>Nova Tarefa</h1>
 
-@if ($errors->any())
-    <ul>
-        @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-        @endforeach
-    </ul>
-@endif
+<x-alert\>
 
 <form action="{{route('.store')}}" method="post">
     @csrf()
