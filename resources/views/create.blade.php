@@ -5,7 +5,7 @@
 
 <h1>Nova Tarefa</h1>
 
-<x-alert\>
+<x-alert/>
 
 <form action="{{route('.store')}}" method="post">
     @csrf()

@@ -5,7 +5,7 @@
 
     <h1>Tarefas</h1>
 
-    <x-alert\>
+    <x-alert/>
 
     <a href="{{ route('.create') }}">Nova Tarefa</a>
 

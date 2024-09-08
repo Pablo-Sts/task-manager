@@ -5,7 +5,7 @@
 
 <h1>Tarefa Tarefa  {{ $task->title }}</h1>
 
-<x-alert\>
+<x-alert/>
 
 <form action="{{route('.update', $task->id)}}" method="post">
     @csrf()
