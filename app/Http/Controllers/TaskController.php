@@ -43,8 +43,14 @@ class TaskController extends Controller
         if (!$task = Task::find($id)) {
             return back()->with("message", "Tarefa não encontrada");
         }   
+        
 
-        $task->update(request($request->all()));
+        $task->update($request->only(
+            "title",
+            "description",
+            "status",
+            "updated_at"
+        ));
 
         return redirect()->route(".index")->with("success", "Tarefa editada com suceso");
     }

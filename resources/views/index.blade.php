@@ -7,6 +7,8 @@
 <div class="container-fluid p-1 text-center">
     <h1 class="text-light mt-5">Minhas Tarefas</h1>
     
+<x-alert/>
+    
 </div>
 <nav class="navbar mb-2">
     <div class="container-fluid">
@@ -14,7 +16,6 @@
     </div>
 </nav>
 
-    <x-alert/>
 
     <div class="table-responsive p-2">      
         <table class="table align-middle table-bordered border-light">
