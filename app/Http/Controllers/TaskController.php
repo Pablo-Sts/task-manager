@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 class TaskController extends Controller
 {
     public function index() {
-        $tasks = Task::paginate();
+        $tasks = Task::paginate();#carrega as tarefas usando paginção
         return view('index', compact("tasks"));
     }
 
@@ -29,7 +29,7 @@ class TaskController extends Controller
     }
 
     public function edit(string $id) {
-    
+        #verifica se a tarefa exite antes de envia-lá para a view
         if (!$task = Task::find($id)) {
             return redirect()->route('.index')->with("message", "Tarefa não encontrada");
         }
@@ -40,6 +40,7 @@ class TaskController extends Controller
 
     public function update(UpdateTaskRequest $request, string $id) {
 
+        #verifica se a tarefa exite antes de altera-lá
         if (!$task = Task::find($id)) {
             return back()->with("message", "Tarefa não encontrada");
         }   
@@ -56,6 +57,7 @@ class TaskController extends Controller
     }
 
     public function show(string $id) {
+        #verifica se a tarefa exite antes de envia-lá para a view
         if (!$task = Task::find($id)) {
             return back()->with("message", "Tarefa não encontrada");
         }   
@@ -64,6 +66,8 @@ class TaskController extends Controller
     }
 
     public function delete(string $id) {
+
+        #verifica se a tarefa exite antes de deleta-lá
         if (!$task = Task::find($id)) {
             return back()->with("message", "Tarefa não encontrada");
         }   

@@ -73,7 +73,7 @@
                </tbody>
            </table>
         </div>
-        {{ $tasks->links() }}
+        {{ $tasks->links() }}<!-- Links da paginação das tarefas  -->
     
 
 @endsection
